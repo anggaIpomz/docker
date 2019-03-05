@@ -69,7 +69,9 @@ RUN set -x; \
         && rm -rf /var/lib/apt/lists/* odoo.deb
 
 # Copy entrypoint script and Odoo configuration file
-RUN pip3 install num2words xlwt xlrd
+RUN pip3 install num2words xlwt xlrd \
+    confluent-kafka confluent-kafka[avro] avro-python3 kafka-python
+
 COPY ./12.0/entrypoint.sh /
 COPY ./12.0/odoo.conf /etc/odoo/
 RUN chown odoo /etc/odoo/odoo.conf
