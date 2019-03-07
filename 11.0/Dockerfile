@@ -57,6 +57,7 @@ RUN set -x; \
 # Copy entrypoint script and Odoo configuration file
 RUN pip3 install num2words xlwt xlrd \
     confluent-kafka confluent-kafka[avro] avro-python3 kafka-python
+    raven
 
 COPY ./11.0/entrypoint.sh /
 COPY ./11.0/odoo.conf /etc/odoo/
